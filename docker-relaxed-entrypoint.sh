@@ -25,11 +25,13 @@ if [ "$1" = 'cassandra' ]; then
 		write_request_timeout_in_ms \
 		counter_write_request_timeout_in_ms \
 		request_timeout_in_ms \
+		native_transport_max_frame_size_in_mb \
+		max_value_size_in_mb \
 	; do
 		var="CASSANDRA_${yaml^^}"
 		val="${!var}"
 		if [ "$val" ]; then
-			_sed-in-place "$CASSANDRA_CONFIG/cassandra.yaml" \
+			_sed-in-place "$CASSANDRA_CONF/cassandra.yaml" \
 				-r 's/^(# )?('"$yaml"':).*/\2 '"$val"'/'
 		fi
 	done
