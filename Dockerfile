@@ -1,4 +1,4 @@
-FROM cassandra:3.11.6
+FROM cassandra:3.11.7
 
 LABEL maintainer="mail@gdietz.de"
 
