@@ -11,13 +11,4 @@ ENV CASSANDRA_READ_REQUEST_TIMEOUT_IN_MS=120000 \
 COPY ./docker-relaxed-entrypoint.sh /usr/local/bin/docker-relaxed-entrypoint.sh
 RUN ln -s /usr/local/bin/docker-relaxed-entrypoint.sh
 
-RUN apt-get update && \
-    apt-get install -y \
-      less \
-      iputils-ping \
-      net-tools \
-      telnet && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 ENTRYPOINT ["docker-relaxed-entrypoint.sh"]
